@@ -6,7 +6,7 @@ public class Main {
 
     public static int[] generateRandomArray() { //обьявление метода сгенерировать массив
         java.util.Random random = new java.util.Random();
-        int[] arr = new int[31];
+        int[] arr = new int[30];
         for (int i = 0; i < arr.length; i++) {
             arr[i] = random.nextInt(100_000) + 100_000;
         }
@@ -26,7 +26,8 @@ public class Main {
 
             sumPay += pay;
         }
-        System.out.println("Сумма трат за месяц составила " + sumPay + "рублей");
+        System.out.println("Сумма трат за месяц составила " + sumPay + " рублей");
+
         //Задача 2
         //Также бухгалтерия попросила найти минимальную и максимальную трату за день.
         //Напишите программу, которая решит эту задачу, и выведите в консоль результат в формате:
@@ -43,8 +44,8 @@ public class Main {
             }
 
         }
-        System.out.println("Минимальная сумма трат за день составила " + minPay + "рублей");
-        System.out.println("Максимальная сумма трат за день составила " + maxPay + "рублей");
+        System.out.println("Минимальная сумма трат за день составила " + minPay + " рублей");
+        System.out.println("Максимальная сумма трат за день составила " + maxPay + " рублей");
 
         System.out.println("\nTask3\n Бухгалтерия хочет понять, какую в среднем сумму компания тратила в течение 30 дней..");
 
@@ -55,12 +56,11 @@ public class Main {
         // и выведите в консоль результат в формате: «Средняя сумма трат за месяц составила … рублей».
         int sumAllPay = 0;   //Сумма всех трат.
 
-        int averageDay = 30;      //компания тратила в течение 30 дней
-        for (int day = 0; day < averageDay; day++) {
-            sumAllPay += arr[day];
+        for (int day:arr) {
+            sumAllPay += day;
         }
-        float averagePay = sumAllPay / averageDay;    //Cреднее значение трат за месяц
-        System.out.println("Cреднее значение трат за месяц " + averagePay + " рублей");
+        float averagePay = (float)sumAllPay / arr.length;    //Средняя сумма трат за месяц
+        System.out.println("Средняя сумма трат за месяц составила  " + averagePay + " рублей");
 
         //Задача 4
         System.out.println("\nTask4\n Напишите код, который в будет выводить фамилии и имена сотрудников в корректном виде.");
